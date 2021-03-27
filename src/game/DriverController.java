@@ -74,6 +74,10 @@ public class DriverController implements KeyListener {
             LaserCollision laserCollision = new LaserCollision(laser);
             laser.addCollisionListener(laserCollision);
             laserSound.play();
+        } else if (code == KeyEvent.VK_1) {
+            System.out.println("Save");
+        } else if (code == KeyEvent.VK_2) {
+            System.out.println("Load");
         }
     }
 

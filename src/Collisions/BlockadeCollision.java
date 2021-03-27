@@ -41,15 +41,13 @@ public class BlockadeCollision implements CollisionListener {
             ((Driver) e.getOtherBody()).decreaseLives();
             ((Driver) e.getOtherBody()).decreaseLives();
             ((Driver) e.getOtherBody()).decreaseLives();
+            ((Driver) e.getOtherBody()).decreaseLives();
+            ((Driver) e.getOtherBody()).decreaseLives();
         } else if (e.getOtherBody() instanceof StaticBody) {
             blockade.destroy();
         } else if (e.getOtherBody() instanceof Blockade) {
             e.getOtherBody().destroy();
-        } else if (e.getOtherBody() instanceof FireTruck) {
-            e.getOtherBody().destroy();
         } else if (e.getOtherBody() instanceof OffRoadCar) {
-            e.getOtherBody().destroy();
-        } else if (e.getOtherBody() instanceof PoliceCar) {
             e.getOtherBody().destroy();
         }else if (e.getOtherBody() instanceof Laser){
             e.getOtherBody().destroy();

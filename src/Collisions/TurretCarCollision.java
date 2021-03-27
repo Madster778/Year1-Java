@@ -1,5 +1,6 @@
 package Collisions;
 
+import Bodies.FireTruck;
 import Levels.GameLevel;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
@@ -23,6 +24,8 @@ public class TurretCarCollision implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getReportingBody() instanceof TurretCar && e.getOtherBody() instanceof StaticBody) {
             turretCar.destroy();
+        } else if (e.getOtherBody() instanceof TurretCar) {
+            e.getOtherBody().destroy();
         }
     }
 }

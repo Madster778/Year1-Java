@@ -31,8 +31,6 @@ public class Level4 extends GameLevel {
 
         super(game);
 
-//        this.addStepListener(new TurretCarHandler(this.getTurretCar()));
-
         try {
             gameMusic = new SoundClip("data/Night Of Fire.wav");
             gameMusic.loop();
@@ -69,9 +67,6 @@ public class Level4 extends GameLevel {
             turretCar = new TurretCar(this);
             turretCar.setPosition(new Vec2(randPosition, 30));
             turretCar.setLinearVelocity(new Vec2(0, -10));
-
-//            this.addStepListener(new TurretCarHandler(this.getTurretCar()));
-
             TurretCarCollision turretCarCollision = new TurretCarCollision(turretCar);
             turretCar.addCollisionListener(turretCarCollision);
             isComplete();

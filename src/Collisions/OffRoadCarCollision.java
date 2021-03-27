@@ -1,5 +1,6 @@
 package Collisions;
 
+import Bodies.FireTruck;
 import Levels.GameLevel;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
@@ -27,6 +28,8 @@ public class OffRoadCarCollision implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getReportingBody() instanceof OffRoadCar && e.getOtherBody() instanceof StaticBody) {
             offroadcar.destroy();
-       }
+        } else if (e.getOtherBody() instanceof OffRoadCar) {
+            e.getOtherBody().destroy();
+        }
     }
 }

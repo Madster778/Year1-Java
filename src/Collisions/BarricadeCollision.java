@@ -45,12 +45,6 @@ public class BarricadeCollision implements CollisionListener {
             e.getOtherBody().destroy();
         } else if (e.getOtherBody() instanceof FireTruck) {
             e.getOtherBody().destroy();
-        } else if (e.getOtherBody() instanceof OffRoadCar) {
-            e.getOtherBody().destroy();
-        } else if (e.getOtherBody() instanceof PoliceCar) {
-            e.getOtherBody().destroy();
-        } else if (e.getOtherBody() instanceof TurretCar) {
-            e.getOtherBody().destroy();
         }else if (e.getOtherBody() instanceof Laser){
             e.getOtherBody().destroy();
             barricade.setLinearVelocity(new Vec2(0, -10));

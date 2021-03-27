@@ -69,16 +69,6 @@ public class TurretCar extends DynamicBody {
         }
     }
 
-//    public void shooting() {
-//        Vec2 selfPoint = turretCar.getPosition().add(new Vec2(0, -2));
-//        Laser laser = new Laser(turretCar.getWorld());
-//        laser.setPosition(selfPoint);
-//        laser.setLinearVelocity(new Vec2(0, -50));
-//        LaserCollision laserCollision = new LaserCollision(laser);
-//        laser.addCollisionListener(laserCollision);
-//    }
-
-
     // A method used to allow the tanks to respawn when each of the tanks are destroyed
     @Override
     public void destroy() {

@@ -14,6 +14,7 @@ public class GUIMusicSlider extends JPanel implements ChangeListener {
     // Creates a static JSlider variable set to volumeSlider
     private static JSlider musicSlider;
     private static double volume;
+
     private static SoundClip gameMusic;
 
     // Creating the main gui slider class

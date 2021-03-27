@@ -1,8 +1,8 @@
 package game;
 
+import Bodies.Blast;
 import Bodies.TurretCar;
-import Bodies.Laser;
-import Collisions.LaserCollision;
+import Collisions.BlastCollision;
 import Levels.GameLevel;
 import city.cs.engine.StepEvent;
 import city.cs.engine.StepListener;
@@ -28,13 +28,13 @@ public class TurretCarHandler implements StepListener {
         }
 
         double currentTime = new Date().getTime() / 1000.;
-        if (currentTime - previousTime > 0.5f) {
+        if (currentTime - previousTime > 1f) {
             Vec2 selfPoint = turretCar.getPosition().add(new Vec2(0, -6));
-            Laser laser = new Laser(turretCar.getWorld());
-            laser.setPosition(selfPoint);
-            laser.setLinearVelocity(new Vec2(0, -20));
-            LaserCollision laserCollision = new LaserCollision(laser);
-            laser.addCollisionListener(laserCollision);
+            Blast blast = new Blast(turretCar.getWorld());
+            blast.setPosition(selfPoint);
+            blast.setLinearVelocity(new Vec2(0, -20));
+            BlastCollision blastCollision = new BlastCollision(blast);
+            blast.addCollisionListener(blastCollision);
             previousTime = currentTime;
         }
 

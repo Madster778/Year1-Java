@@ -27,6 +27,8 @@ public class FireTruckCollision implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getReportingBody() instanceof FireTruck && e.getOtherBody() instanceof StaticBody) {
             firetruck.destroy();
+        } else if (e.getOtherBody() instanceof FireTruck) {
+            e.getOtherBody().destroy();
         }
     }
 }
