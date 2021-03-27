@@ -31,6 +31,8 @@ public class Game {
         // create the world for the game
         level = new Level4(this);
 
+        level.addStepListener(new TurretCarHandler(level));
+
         // create a view for the game
         view = new GameView(level, 650, 800);
 

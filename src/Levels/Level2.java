@@ -48,7 +48,7 @@ public class Level2  extends GameLevel {
             double previousTime = new Date().getTime() / 1000.;
             public void preStep(StepEvent e) {
                 double currentTime = new Date().getTime() / 1000.;
-                if (currentTime - previousTime > 5.f) {
+                if (currentTime - previousTime > 4.f) {
                     new Barricade(world);
                     previousTime = currentTime;
                 }

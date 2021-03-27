@@ -25,4 +25,7 @@ public class Laser extends DynamicBody {
         setGravityScale(-9.8f);
         addImage(image);
     }
+
+    public void addCollisionListener() {
+    }
 }

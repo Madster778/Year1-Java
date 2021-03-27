@@ -17,7 +17,12 @@ public abstract class GameLevel extends World {
     private FireTruck fireTruck;
     private OffRoadCar offRoadCar;
     private PoliceCar policeCar;
-    private TurretCar turretCar;
+
+    public void setTurretCar(TurretCar turretCar) {
+        this.turretCar = turretCar;
+    }
+
+    protected TurretCar turretCar;
 
     private Game game;
     public static SoundClip gameMusic;

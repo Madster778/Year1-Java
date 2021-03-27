@@ -67,7 +67,7 @@ public class DriverController implements KeyListener {
         // laserSound is called when space bar is pressed
         } else if (code == KeyEvent.VK_SPACE) {
             laserSound.stop();
-            Vec2 selfPoint = driver.getPosition().add(new Vec2(0f, 2f));
+            Vec2 selfPoint = driver.getPosition().add(new Vec2(0, 2));
             Laser laser = new Laser(driver.getWorld());
             laser.setPosition(selfPoint);
             laser.setLinearVelocity(new Vec2(0, 50));

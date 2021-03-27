@@ -1,10 +1,12 @@
 package Bodies;
 
+import Collisions.LaserCollision;
 import Collisions.TurretCarCollision;
 import Levels.GameLevel;
 import city.cs.engine.*;
 import game.DriverController;
 import game.Game;
+import game.TurretCarHandler;
 import org.jbox2d.common.Vec2;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -18,6 +20,8 @@ public class TurretCar extends DynamicBody {
     private GameLevel world;
 
     private Game game;
+
+    private TurretCar turretCar;
 
     // Creates a static variable for explosionSound which holds a SoundClip
     private static SoundClip explosionSound;
@@ -65,6 +69,16 @@ public class TurretCar extends DynamicBody {
         }
     }
 
+//    public void shooting() {
+//        Vec2 selfPoint = turretCar.getPosition().add(new Vec2(0, -2));
+//        Laser laser = new Laser(turretCar.getWorld());
+//        laser.setPosition(selfPoint);
+//        laser.setLinearVelocity(new Vec2(0, -50));
+//        LaserCollision laserCollision = new LaserCollision(laser);
+//        laser.addCollisionListener(laserCollision);
+//    }
+
+
     // A method used to allow the tanks to respawn when each of the tanks are destroyed
     @Override
     public void destroy() {
@@ -73,13 +87,13 @@ public class TurretCar extends DynamicBody {
         turretCar.setLinearVelocity(new Vec2(0, -10));
         TurretCarCollision turretCarCollision = new TurretCarCollision(turretCar);
         turretCar.addCollisionListener(turretCarCollision);
-
         super.destroy();
-
         GameLevel world = (GameLevel)this.getWorld();
         if (world.isComplete()){
             world.getGame().goToNextLevel();
         }
+
+        Game.getLevel().setTurretCar(turretCar);
 
     }
 }

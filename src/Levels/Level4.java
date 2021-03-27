@@ -31,6 +31,8 @@ public class Level4 extends GameLevel {
 
         super(game);
 
+//        this.addStepListener(new TurretCarHandler(this.getTurretCar()));
+
         try {
             gameMusic = new SoundClip("data/Night Of Fire.wav");
             gameMusic.loop();
@@ -64,9 +66,12 @@ public class Level4 extends GameLevel {
         // sets a negative linear velocity in y direction, so the tanks move downwards after spawning in
         for (int i = 0; i < 1; i++) {
             float randPosition = xPositions[random.nextInt(xPositions.length)];
-            TurretCar turretCar = new TurretCar(this);
+            turretCar = new TurretCar(this);
             turretCar.setPosition(new Vec2(randPosition, 30));
             turretCar.setLinearVelocity(new Vec2(0, -10));
+
+//            this.addStepListener(new TurretCarHandler(this.getTurretCar()));
+
             TurretCarCollision turretCarCollision = new TurretCarCollision(turretCar);
             turretCar.addCollisionListener(turretCarCollision);
             isComplete();
