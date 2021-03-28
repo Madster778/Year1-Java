@@ -28,8 +28,6 @@ public class PoliceCarCollision implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getReportingBody() instanceof PoliceCar && e.getOtherBody() instanceof StaticBody) {
             policecar.destroy();
-        } else if (e.getOtherBody() instanceof PoliceCar) {
-            e.getOtherBody().destroy();
         }
     }
 }

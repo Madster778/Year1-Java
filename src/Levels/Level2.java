@@ -106,10 +106,14 @@ public class Level2  extends GameLevel {
     // Override used to go to next level when the boolean returns true
     @Override
     public boolean isComplete() {
-        if (getDriver().getKills() >= 8)
-        //if (getDriver().getKills() >= 3)
+        if (getDriver().getKills() >= 3)
             return true;
         else
             return false;
+    }
+
+    @Override
+    public String getLevelName() {
+        return "Level2";
     }
 }

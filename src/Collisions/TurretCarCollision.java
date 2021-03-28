@@ -24,8 +24,6 @@ public class TurretCarCollision implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getReportingBody() instanceof TurretCar && e.getOtherBody() instanceof StaticBody) {
             turretCar.destroy();
-        } else if (e.getOtherBody() instanceof TurretCar) {
-            e.getOtherBody().destroy();
         }
     }
 }

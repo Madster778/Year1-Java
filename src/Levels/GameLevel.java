@@ -60,4 +60,6 @@ public abstract class GameLevel extends World {
     // Getter used to check if IsComplete has been met, to go to next level
     public abstract boolean isComplete();
 
+    public abstract String getLevelName();
+
 }

@@ -29,7 +29,7 @@ public class Game {
     public Game() {
 
         // create the world for the game
-        level = new Level4(this);
+        level = new Level1(this);
 
         level.addStepListener(new TurretCarHandler(level));
 
@@ -69,6 +69,23 @@ public class Game {
         JFrame debugView = new DebugViewer(level, 650, 720);
 
         // start the simulation of the game world
+        level.start();
+    }
+
+    public void setLevel(GameLevel level){
+        level.stop();
+        frame.remove(view);
+        level = new Level2(this);
+        view.setWorld(level);
+        view = new GameView(level, 650, 800);
+        controller.updateDriver(level.getDriver());
+        view.addMouseListener(new Focus(view));
+        frame.add(view);
+        view.setWorld(level);
+        frame.pack();
+        controller.updateDriver(level.getDriver());
+        controller = new DriverController(level.getDriver());
+        view.addKeyListener(controller);
         level.start();
     }
 

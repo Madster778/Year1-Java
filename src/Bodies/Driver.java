@@ -38,7 +38,7 @@ public class Driver extends Walker {
     // A setter for kills that increments kills by 1
     public static void setKills() {
         kills++;
-        //System.out.println("Kills: " + kills);
+        System.out.println("Kills: " + kills);
     }
 
     // A method used to decrease the lives and stop the game when lives run out
@@ -56,4 +56,9 @@ public class Driver extends Walker {
     // A getter for lives to return lives
     public static int getLives() { return lives; }
 
+    public static void setLives(int lives) {
+        Driver.lives = lives;
+    }
+
+    public void setKills(int kills) { Driver.kills = kills; }
 }

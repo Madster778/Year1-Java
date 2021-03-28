@@ -3,6 +3,7 @@ package game;
 import Bodies.Driver;
 import Bodies.Laser;
 import Collisions.LaserCollision;
+import Levels.GameLevel;
 import city.cs.engine.SoundClip;
 import org.jbox2d.common.Vec2;
 
@@ -19,6 +20,9 @@ public class DriverController implements KeyListener {
     private static final float WALKING_SPEED = 15;
     // Creates a private variable for driver
     private Driver driver;
+
+    private Game game;
+
     // Creates a private static variable for score set to 0
     private static int score = 0;
 
@@ -75,9 +79,17 @@ public class DriverController implements KeyListener {
             laser.addCollisionListener(laserCollision);
             laserSound.play();
         } else if (code == KeyEvent.VK_1) {
-            System.out.println("Save");
-        } else if (code == KeyEvent.VK_2) {
-            System.out.println("Load");
+            try {
+                GameSaverLoader.save(game.getLevel(), "data/save.txt");
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        } else if (code == KeyEvent.VK_3) {
+            try {
+                GameSaverLoader.load(game.getLevel().getGame(), "data/save.txt");
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         }
     }
 

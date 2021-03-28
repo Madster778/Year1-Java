@@ -10,6 +10,7 @@ import org.jbox2d.common.Vec2;
 
 import java.util.Date;
 
+
 public class TurretCarHandler implements StepListener {
 
     private GameLevel level;
@@ -29,7 +30,7 @@ public class TurretCarHandler implements StepListener {
 
         double currentTime = new Date().getTime() / 1000.;
         if (currentTime - previousTime > 1f) {
-            Vec2 selfPoint = turretCar.getPosition().add(new Vec2(0, -6));
+            Vec2 selfPoint = turretCar.getPosition().add(new Vec2(0, -7));
             Blast blast = new Blast(turretCar.getWorld());
             blast.setPosition(selfPoint);
             blast.setLinearVelocity(new Vec2(0, -20));
