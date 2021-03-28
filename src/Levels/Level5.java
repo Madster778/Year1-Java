@@ -60,7 +60,7 @@ public class Level5 extends GameLevel {
         DriverCollision driverCollision = new DriverCollision(getDriver());
         getDriver().addCollisionListener(driverCollision);
 
-        // this loop is used to spawn the tanks in one of the 5 lanes, each tank with a collision listener
+        // this loop is used to spawn the tank in one of the 5 lanes, tank spawns with a collision listener
         // sets a negative linear velocity in y direction, so the tanks move downwards after spawning in
         for (int i = 0; i < 1; i++) {
             float randPosition = xPositions[random.nextInt(xPositions.length)];

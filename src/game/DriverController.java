@@ -50,6 +50,9 @@ public class DriverController implements KeyListener {
         //System.out.println("Score: " + score);
     }
 
+    public static void setScore(int score) { DriverController.score = score; }
+
+
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -78,18 +81,6 @@ public class DriverController implements KeyListener {
             LaserCollision laserCollision = new LaserCollision(laser);
             laser.addCollisionListener(laserCollision);
             laserSound.play();
-//        } else if (code == KeyEvent.VK_1) {
-//            try {
-//                GameSaverLoader.save(game.getLevel(), "data/save.txt");
-//            } catch (IOException ioException) {
-//                ioException.printStackTrace();
-//            }
-//        } else if (code == KeyEvent.VK_3) {
-//            try {
-//                GameSaverLoader.load(game.getLevel().getGame(), "data/save.txt");
-//            } catch (IOException ioException) {
-//                ioException.printStackTrace();
-//            }
         }
     }
 

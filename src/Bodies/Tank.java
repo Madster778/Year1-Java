@@ -49,7 +49,12 @@ public class Tank extends DynamicBody implements StepListener {
     // Creates a private variable for health
     private static int health;
 
-
+    /**
+     * The tank is able to follow the driver when in range.
+     * The tank is initially spawned without moving left or right.
+     *
+     * @param level the location of level, given the location from GameLevel.
+     */
     // A constructor for tank to add the image and health
     public Tank(GameLevel level) {
         super(level, turretcarShape);

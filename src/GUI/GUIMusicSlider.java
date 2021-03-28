@@ -6,7 +6,6 @@ import city.cs.engine.SoundClip;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
 
 // Creates a class for the GUIMusicSlider
 public class GUIMusicSlider extends JPanel implements ChangeListener {

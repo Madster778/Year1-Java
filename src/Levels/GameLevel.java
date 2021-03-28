@@ -1,10 +1,7 @@
 package Levels;
 
 import Bodies.*;
-import Collisions.FireTruckCollision;
-import Collisions.OffRoadCarCollision;
-import Collisions.PoliceCarCollision;
-import Collisions.TurretCarCollision;
+import Collisions.*;
 import city.cs.engine.SoundClip;
 import city.cs.engine.World;
 import game.*;
@@ -33,6 +30,12 @@ public abstract class GameLevel extends World {
     public static SoundClip gameMusic;
     private GameLevel level;
 
+    /**
+     * Returns the collisions for all type of vehicles
+     * Allows the driver to interact with each level
+     *
+     * @param game The location of game, being used from Game class
+     */
     // Main GameLevel which holds the driver and its related collisions
     public GameLevel(Game game){
         // sets the world gravity to 0
@@ -45,7 +48,9 @@ public abstract class GameLevel extends World {
         driver.addCollisionListener(offRoadCarEncounter);
         PoliceCarCollision policeCarEncounter = new PoliceCarCollision(this, game);
         driver.addCollisionListener(policeCarEncounter);
-        TurretCarCollision tankEncounter = new TurretCarCollision(this, game);
+        TurretCarCollision turretCarEncounter = new TurretCarCollision(this, game);
+        driver.addCollisionListener(turretCarEncounter);
+        TankCollision tankEncounter = new TankCollision(this, game);
         driver.addCollisionListener(tankEncounter);
     }
 

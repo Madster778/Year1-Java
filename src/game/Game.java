@@ -29,7 +29,7 @@ public class Game {
     public Game() {
 
         // create the world for the game
-        level = new Level5(this);
+        level = new Level1(this);
 
         level.addStepListener(new TurretCarHandler(level));
         level.addStepListener(new TankHandler(level));
@@ -67,14 +67,13 @@ public class Game {
         frame.setVisible(true);
 
         // uncomment this to make a debugging view
-        JFrame debugView = new DebugViewer(level, 650, 720);
+        //JFrame debugView = new DebugViewer(level, 650, 720);
 
         // start the simulation of the game world
         level.start();
     }
 
     public void setLevel(GameLevel level){
-        GameLevel.gameMusic.stop();
         Game.level.stop();
         frame.remove(view);
         Game.level = level;
@@ -176,6 +175,10 @@ public class Game {
     // A public static getter for GameLevel to return level
     public static GameLevel getLevel() {
         return level;
+    }
+
+    public DriverController getController() {
+        return controller;
     }
 
     // Run the game

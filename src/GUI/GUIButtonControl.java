@@ -75,7 +75,7 @@ public class GUIButtonControl extends JPanel {
         });
         but.add(pauseButton);
 
-        // Creates a save button that exits the game when pressed
+        // Creates a save button that saves the current stats of game in a text file
         saveButton = new JButton("Save");
         saveButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         saveButton.addActionListener(new ActionListener() {
@@ -90,14 +90,14 @@ public class GUIButtonControl extends JPanel {
         });
         but.add(saveButton);
 
-        // Creates a load button that exits the game when pressed
+        // Creates a load button that loads the text file with the saved stats
         loadButton = new JButton("Load");
         loadButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         loadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    GameSaverLoader.save(Game.getLevel(), "data/save.txt");
+                    GameSaverLoader.load(Game.getLevel().getGame(), "data/save.txt");
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

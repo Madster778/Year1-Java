@@ -94,7 +94,6 @@ public class Level1 extends GameLevel {
     @Override
     public boolean isComplete() {
         if (getDriver().getKills() >= 3)
-        //if (getDriver().getKills() >= 3)
             return true;
         else
             return false;
