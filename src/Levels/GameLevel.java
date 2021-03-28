@@ -22,7 +22,12 @@ public abstract class GameLevel extends World {
         this.turretCar = turretCar;
     }
 
+    public void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
     protected TurretCar turretCar;
+    protected Tank tank;
 
     private Game game;
     public static SoundClip gameMusic;
@@ -46,12 +51,11 @@ public abstract class GameLevel extends World {
 
     // Getters used to return the private variables
     public Driver getDriver(){ return driver; }
-    public FireTruck getFireTruck(){
-        return fireTruck;
-    }
+    public FireTruck getFireTruck(){ return fireTruck; }
     public OffRoadCar getOffRoadCar() { return offRoadCar; }
     public PoliceCar getPoliceCar() { return policeCar; }
     public TurretCar getTurretCar() { return turretCar; }
+    public Tank getTank() { return tank; }
 
     public Game getGame() { return game; }
     public static SoundClip getGameMusic(){return gameMusic;}

@@ -28,7 +28,7 @@ public class Driver extends Walker {
     public Driver(World world) {
         super(world, driverShape);
         addImage(image);
-        lives = 5;
+        lives = 10;
         kills = 0;
     }
 

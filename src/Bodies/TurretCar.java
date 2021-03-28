@@ -1,12 +1,10 @@
 package Bodies;
 
-import Collisions.LaserCollision;
 import Collisions.TurretCarCollision;
 import Levels.GameLevel;
 import city.cs.engine.*;
 import game.DriverController;
 import game.Game;
-import game.TurretCarHandler;
 import org.jbox2d.common.Vec2;
 
 import javax.sound.sampled.LineUnavailableException;

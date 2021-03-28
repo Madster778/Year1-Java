@@ -50,6 +50,10 @@ public class DriverCollision implements CollisionListener {
             driver.decreaseLives();
             e.getOtherBody().destroy();
             crashSound.play();
+        }else if (e.getOtherBody() instanceof Tank) {
+            driver.decreaseLives();
+            e.getOtherBody().destroy();
+            crashSound.play();
         }
     }
 }

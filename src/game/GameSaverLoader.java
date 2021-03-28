@@ -1,9 +1,7 @@
 package game;
 
 import Bodies.Driver;
-import Levels.GameLevel;
-import Levels.Level1;
-import Levels.Level2;
+import Levels.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -49,6 +47,12 @@ public class GameSaverLoader {
                 level = new Level1(game);
             else if (name.equals("Level2"))
                 level = new Level2(game);
+            else if (name.equals("Level3"))
+                level = new Level3(game);
+            else if (name.equals("Level4"))
+                level = new Level4(game);
+            else if (name.equals("Level5"))
+                level = new Level5(game);
 
             level.getDriver().setLives(lives);
             level.getDriver().setKills(kills);

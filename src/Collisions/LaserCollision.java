@@ -69,6 +69,12 @@ public class LaserCollision implements CollisionListener {
             ((TurretCar) e.getOtherBody()).decreaseHealth();
             ((TurretCar) e.getOtherBody()).setLinearVelocity(new Vec2(0, -10));
             laser.destroy();
+        } else if (e.getOtherBody() instanceof Tank){
+            collisionSound.stop();
+            collisionSound.play();
+            ((Tank) e.getOtherBody()).decreaseHealth();
+            ((Tank) e.getOtherBody()).setLinearVelocity(new Vec2(0, -1));
+            laser.destroy();
         } else if (e.getOtherBody() instanceof StaticBody) {
             laser.destroy();
         } else if (e.getOtherBody() instanceof Laser) {

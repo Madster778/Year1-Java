@@ -29,9 +29,10 @@ public class Game {
     public Game() {
 
         // create the world for the game
-        level = new Level1(this);
+        level = new Level5(this);
 
         level.addStepListener(new TurretCarHandler(level));
+        level.addStepListener(new TankHandler(level));
 
         // create a view for the game
         view = new GameView(level, 650, 800);
@@ -73,10 +74,11 @@ public class Game {
     }
 
     public void setLevel(GameLevel level){
-        level.stop();
+        GameLevel.gameMusic.stop();
+        Game.level.stop();
         frame.remove(view);
-        level = new Level2(this);
-        view.setWorld(level);
+        Game.level = level;
+        view.setWorld(Game.level);
         view = new GameView(level, 650, 800);
         controller.updateDriver(level.getDriver());
         view.addMouseListener(new Focus(view));
@@ -86,7 +88,7 @@ public class Game {
         controller.updateDriver(level.getDriver());
         controller = new DriverController(level.getDriver());
         view.addKeyListener(controller);
-        level.start();
+        Game.level.start();
     }
 
     // A constructor to go to the next level when conditions are met
@@ -146,8 +148,26 @@ public class Game {
             view.addKeyListener(controller);
             level.start();
         }
-        // Stops level 4 by exiting game when completion requirements are met
-        else if (level instanceof Level4){
+        // Stops level 4 view and music, in order to load up the view and music of level 5
+        else if (level instanceof Level4) {
+            level.stop();
+            frame.remove(view);
+            GameLevel.gameMusic.stop();
+            level = new Level5(this);
+            view.setWorld(level);
+            view = new GameView(level, 650, 800);
+            controller.updateDriver(level.getDriver());
+            view.addMouseListener(new Focus(view));
+            frame.add(view);
+            view.setWorld(level);
+            frame.pack();
+            controller.updateDriver(level.getDriver());
+            controller = new DriverController(level.getDriver());
+            view.addKeyListener(controller);
+            level.start();
+        }
+        // Stops level 5 by exiting game when completion requirements are met
+        else if (level instanceof Level5){
             System.out.println("Well done! Game complete.");
             System.exit(0);
         }

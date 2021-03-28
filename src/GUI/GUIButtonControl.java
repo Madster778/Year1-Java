@@ -3,11 +3,13 @@ package GUI;
 import Levels.GameLevel;
 import city.cs.engine.SoundClip;
 import game.Game;
+import game.GameSaverLoader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 // Creates a class for the GUIButtonControl
 public class GUIButtonControl extends JPanel {
@@ -19,6 +21,8 @@ public class GUIButtonControl extends JPanel {
     private static JButton instructionButton;
     private static JButton playButton;
     private static JButton pauseButton;
+    private static JButton saveButton;
+    private static JButton loadButton;
     private static JButton quitButton;
     private static JButton muteButton;
 
@@ -71,6 +75,36 @@ public class GUIButtonControl extends JPanel {
         });
         but.add(pauseButton);
 
+        // Creates a save button that exits the game when pressed
+        saveButton = new JButton("Save");
+        saveButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    GameSaverLoader.save(Game.getLevel(),"data/save.txt");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+        but.add(saveButton);
+
+        // Creates a load button that exits the game when pressed
+        loadButton = new JButton("Load");
+        loadButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        loadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    GameSaverLoader.save(Game.getLevel(), "data/save.txt");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+        but.add(loadButton);
+
         // Creates a quit button that exits the game when pressed
         quitButton = new JButton("Quit");
         quitButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
@@ -80,7 +114,6 @@ public class GUIButtonControl extends JPanel {
                 System.exit(0);
             }
         });
-
         but.add(quitButton);
 
         // Creates a mute/unmute button that pauses and resumes the gameMusic

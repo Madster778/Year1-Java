@@ -1,6 +1,5 @@
 package Collisions;
 
-import Bodies.FireTruck;
 import Levels.GameLevel;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
@@ -11,7 +10,7 @@ import Bodies.TurretCar;
 // Creates a class for the firetruck collisions
 public class TurretCarCollision implements CollisionListener {
 
-    // Creates a private variable for firetruck
+    // Creates a private variable for turret car
     private TurretCar turretCar;
 
     // A constructor to set the private variable tank to t

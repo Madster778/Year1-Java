@@ -3,13 +3,7 @@ package Collisions;
 import Bodies.*;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
-import city.cs.engine.SoundClip;
 import city.cs.engine.StaticBody;
-import org.jbox2d.common.Vec2;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
 
 // Creates a class for the barricade collisions
 public class BlastCollision implements CollisionListener {
