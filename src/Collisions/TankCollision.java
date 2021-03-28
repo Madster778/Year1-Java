@@ -1,5 +1,7 @@
 package Collisions;
 
+import Bodies.Blast;
+import Bodies.Driver;
 import Bodies.Tank;
 import Levels.GameLevel;
 import city.cs.engine.CollisionEvent;
@@ -22,8 +24,8 @@ public class TankCollision implements CollisionListener {
     // A constructor to have the tanks collide with static bodies
     @Override
     public void collide(CollisionEvent e) {
-        if (e.getReportingBody() instanceof Tank && e.getOtherBody() instanceof StaticBody) {
-            tank.destroy();
+        if (e.getOtherBody() instanceof Blast) {
+            e.getOtherBody().destroy();
         }
     }
 }

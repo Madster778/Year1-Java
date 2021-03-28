@@ -137,6 +137,7 @@ public class Game {
             level = new Level4(this);
             view.setWorld(level);
             view = new GameView(level, 650, 800);
+            level.addStepListener(new TurretCarHandler(level));
             controller.updateDriver(level.getDriver());
             view.addMouseListener(new Focus(view));
             frame.add(view);
@@ -155,6 +156,7 @@ public class Game {
             level = new Level5(this);
             view.setWorld(level);
             view = new GameView(level, 650, 800);
+            level.addStepListener(new TankHandler(level));
             controller.updateDriver(level.getDriver());
             view.addMouseListener(new Focus(view));
             frame.add(view);

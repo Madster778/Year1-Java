@@ -38,6 +38,7 @@ public class BlockadeCollision implements CollisionListener {
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof Driver) {
             crashSound.play();
+            blockade.destroy();
             ((Driver) e.getOtherBody()).decreaseLives();
             ((Driver) e.getOtherBody()).decreaseLives();
             ((Driver) e.getOtherBody()).decreaseLives();
